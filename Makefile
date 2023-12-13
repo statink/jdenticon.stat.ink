@@ -14,7 +14,7 @@ check-style-phpcs: vendor
 
 .PHONY: check-style-phpstan
 check-style-phpstan: vendor
-	./vendor/bin/phpstan analyse
+	./vendor/bin/phpstan analyse --memory-limit=1G
 
 vendor: composer.lock composer.phar
 	./composer.phar install --prefer-dist
