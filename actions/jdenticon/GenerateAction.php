@@ -6,7 +6,9 @@ namespace app\actions\jdenticon;
 
 use Jdenticon\Identicon;
 use Yii;
+use app\helpers\TypeHelper;
 use yii\base\Action;
+use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
 
@@ -16,6 +18,8 @@ use function hash_file;
 use function implode;
 use function in_array;
 use function preg_match;
+use function strlen;
+use function substr;
 
 final class GenerateAction extends Action
 {
@@ -25,10 +29,20 @@ final class GenerateAction extends Action
     public function run(string $hash, string $ext): Response
     {
         if (
-            !preg_match('/^[0-9a-f]{32,}$/i', $hash) ||
+            !preg_match('/\A[0-9a-f]{32,}\z/', $hash) ||
             !in_array($ext, ['png', 'svg'], true)
         ) {
-            throw new NotFoundHttpException();
+            throw new NotFoundHttpException(
+                Yii::t('yii', 'Page not found.'),
+            );
+        }
+
+        if (strlen($hash) > 32) {
+            return TypeHelper::instanceOf($this->controller, Controller::class)
+                ->redirect(['jdenticon/generate',
+                    'hash' => substr($hash, 0, 32),
+                    'ext' => $ext,
+                ]);
         }
 
         $response = Yii::$app->response;
