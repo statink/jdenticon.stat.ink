@@ -2,13 +2,12 @@
 
 declare(strict_types=1);
 
-use yii\symfonymailer\Mailer;
-
-$params = require __DIR__ . '/params.php';
-$db = require __DIR__ . '/db.php';
+use yii\debug\Module as DebugModule;
 
 $config = [
-    'id' => 'basic',
+    'id' => 'jdenticon',
+    'language' => 'en-US',
+    'timeZone' => 'UTC',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'aliases' => [
@@ -16,62 +15,29 @@ $config = [
         '@npm' => '@vendor/npm-asset',
     ],
     'components' => [
-        'request' => [
-            // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => 'vMMlRRVCcbhRaAvJ1OrQPguRdWgyecZD',
-        ],
-        'cache' => [
-            'class' => 'yii\caching\FileCache',
-        ],
-        'user' => [
-            'identityClass' => 'app\models\User',
-            'enableAutoLogin' => true,
-        ],
-        'errorHandler' => [
-            'errorAction' => 'site/error',
-        ],
-        'mailer' => [
-            'class' => Mailer::class,
-            'viewPath' => '@app/mail',
-            // send all mails to a file by default.
-            'useFileTransport' => true,
-        ],
-        'log' => [
-            'traceLevel' => YII_DEBUG ? 3 : 0,
-            'targets' => [
-                [
-                    'class' => 'yii\log\FileTarget',
-                    'levels' => ['error', 'warning'],
-                ],
-            ],
-        ],
-        'db' => $db,
-        /*
-        'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
-            ],
-        ],
-        */
+        'cache' => require __DIR__ . '/components/cache.php',
+        'db' => require __DIR__ . '/components/db.php',
+        'errorHandler' => require __DIR__ . '/components/web/error-handler.php',
+        'log' => require __DIR__ . '/components/log.php',
+        'request' => require __DIR__ . '/components/web/request.php',
+        'urlManager' => require __DIR__ . '/components/web/url-manager.php',
+        'user' => require __DIR__ . '/components/web/user.php',
     ],
-    'params' => $params,
+    'params' => require __DIR__ . '/params.php',
 ];
 
 if (YII_ENV_DEV) {
     // configuration adjustments for 'dev' environment
     $config['bootstrap'][] = 'debug';
     $config['modules']['debug'] = [
-        'class' => 'yii\debug\Module',
-        // uncomment the following to add your IP if you are not connecting from localhost.
-        //'allowedIPs' => ['127.0.0.1', '::1'],
-    ];
-
-    $config['bootstrap'][] = 'gii';
-    $config['modules']['gii'] = [
-        'class' => 'yii\gii\Module',
-        // uncomment the following to add your IP if you are not connecting from localhost.
-        //'allowedIPs' => ['127.0.0.1', '::1'],
+        'class' => DebugModule::class,
+        'allowedIPs' => [
+            '127.0.0.0/8',
+            '10.0.0.0/8',
+            '172.16.0.0/12',
+            '192.168.0.0/16',
+            '::1',
+        ],
     ];
 }
 
