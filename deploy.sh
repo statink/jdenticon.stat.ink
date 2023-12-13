@@ -13,4 +13,4 @@ make vendor
 git tag -m $VERSION_TAG $VERSION_TAG || /bin/true
 git push origin master $VERSION_TAG
 
-vendor/dep deploy --tag="$VERSION_TAG" -- production
+vendor/bin/dep deploy --tag="$VERSION_TAG"
