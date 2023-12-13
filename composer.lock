@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "495b5c4af2b66051460bc75059631e4e",
+    "content-hash": "d5898072350a74dd17d4581c07a70b68",
     "packages": [
         {
             "name": "cebe/markdown",
@@ -132,54 +132,53 @@
             "time": "2023-11-17T15:01:25+00:00"
         },
         {
-            "name": "paragonie/random_compat",
-            "version": "v9.99.100",
+            "name": "jdenticon/jdenticon",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "996434e5492cb4c3edcb9168db6fbb1359ef965a"
+                "url": "https://github.com/dmester/jdenticon-php.git",
+                "reference": "cabb7a44c413c318392a341c5d3ca30fcdd57a6f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/996434e5492cb4c3edcb9168db6fbb1359ef965a",
-                "reference": "996434e5492cb4c3edcb9168db6fbb1359ef965a",
+                "url": "https://api.github.com/repos/dmester/jdenticon-php/zipball/cabb7a44c413c318392a341c5d3ca30fcdd57a6f",
+                "reference": "cabb7a44c413c318392a341c5d3ca30fcdd57a6f",
                 "shasum": ""
             },
             "require": {
-                "php": ">= 7"
+                "php": ">=5.3.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "4.*|5.*",
-                "vimeo/psalm": "^1"
-            },
-            "suggest": {
-                "ext-libsodium": "Provides a modern crypto API that can be used to generate random bytes."
+                "phpunit/phpunit": "^5.7"
             },
             "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Jdenticon\\": "src/"
+                }
+            },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "authors": [
                 {
-                    "name": "Paragon Initiative Enterprises",
-                    "email": "security@paragonie.com",
-                    "homepage": "https://paragonie.com"
+                    "name": "Daniel Mester Pirttijärvi"
                 }
             ],
-            "description": "PHP 5.x polyfill for random_bytes() and random_int() from PHP 7",
+            "description": "Render PNG and SVG identicons.",
+            "homepage": "https://jdenticon.com/",
             "keywords": [
-                "csprng",
-                "polyfill",
-                "pseudorandom",
-                "random"
+                "avatar",
+                "identicon",
+                "jdenticon"
             ],
             "support": {
-                "email": "info@paragonie.com",
-                "issues": "https://github.com/paragonie/random_compat/issues",
-                "source": "https://github.com/paragonie/random_compat"
+                "docs": "https://jdenticon.com/php-api.html",
+                "issues": "https://github.com/dmester/jdenticon-php/issues",
+                "source": "https://github.com/dmester/jdenticon-php"
             },
-            "time": "2020-10-15T08:29:30+00:00"
+            "time": "2022-10-30T17:15:02+00:00"
         },
         {
             "name": "yiisoft/yii2",
