@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\actions\jdenticon;
 
+use Jdenticon\Color;
 use Jdenticon\Identicon;
 use Yii;
 use app\helpers\TypeHelper;
@@ -89,8 +90,23 @@ final class GenerateAction extends Action
 
         return Yii::$app->cache->getOrSet(
             $cacheKey,
-            fn (): string => Identicon::fromHash(hash: $hash, size: 500)->getImageData($ext),
+            fn (): string => $this->renderIconUncached($hash, $ext),
             self::PRIVATE_CACHE_DURATION,
         );
+    }
+
+    private function renderIconUncached(string $hash, string $ext): string
+    {
+        $renderer = Identicon::fromHash(hash: $hash, size: 500);
+        $renderer->getStyle()
+            ->setBackgroundColor(
+                Color::fromRgb(
+                    red: 255,
+                    green: 255,
+                    blue: 255,
+                ),
+            );
+
+        return $renderer->getImageData($ext);
     }
 }
