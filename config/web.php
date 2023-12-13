@@ -8,6 +8,7 @@ $config = [
     'id' => 'jdenticon',
     'language' => 'en-US',
     'timeZone' => 'UTC',
+    'charset' => 'UTF-8',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'aliases' => [
