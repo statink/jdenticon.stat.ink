@@ -6,5 +6,6 @@ return [
     'enablePrettyUrl' => true,
     'showScriptName' => false,
     'rules' => [
+        '<hash:[0-9a-f]{32,}>.<ext:png|svg>' => 'jdenticon/generate',
     ],
 ];
