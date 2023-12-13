@@ -19,6 +19,7 @@
         "yiisoft/yii2": "~2.0.49.3"
     },
     "require-dev": {
+        "deployer/deployer": "^7.3.3",
         "jp3cki/coding-standard": "^1.0",
         "proget-hq/phpstan-yii2": "^0.8.0",
         "yiisoft/yii2-debug": "~2.1.25"
