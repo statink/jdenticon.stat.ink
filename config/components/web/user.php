@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-use app\models\User;
-
 return [
-    'identityClass' => User::class,
-    'enableAutoLogin' => true,
+    'enableAutoLogin' => false,
+    'enableSession' => false,
+    'identityClass' => null,
+    'loginUrl' => null,
 ];

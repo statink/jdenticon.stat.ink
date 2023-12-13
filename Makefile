@@ -1,5 +1,5 @@
 .PHONY: all
-all: vendor config/components/web/request/cookie-validation-key.txt
+all: vendor
 
 .PHONY: clean
 clean:
@@ -15,6 +15,3 @@ ifeq (, $(shell which composer 2>/dev/null))
 else
 	ln -s `which composer` $@
 endif
-
-config/components/web/request/cookie-validation-key.txt:
-	openssl rand -base64 32 > $@
