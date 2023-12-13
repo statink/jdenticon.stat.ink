@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ruleset name="customized">
+  <description>A custom coding standard</description>
+
+  <ini name="memory_limit" value="-1" />
+
+  <arg name="basepath" value="." />
+  <arg name="extensions" value="php" />
+  <arg value="p" />
+  <arg value="s" />
+
+  <file>.</file>
+  <exclude-pattern>./.git/</exclude-pattern>
+  <exclude-pattern>./.github/</exclude-pattern>
+  <exclude-pattern>./node_modules</exclude-pattern>
+  <exclude-pattern>./runtime</exclude-pattern>
+  <exclude-pattern>./vendor</exclude-pattern>
+  <exclude-pattern>./views</exclude-pattern>
+
+  <rule ref="JP3CKI">
+  </rule>
+</ruleset>
