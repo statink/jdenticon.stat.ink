@@ -5,6 +5,17 @@ all: vendor
 clean:
 	rm -rf vendor composer.phar
 
+.PHONY: check-style
+check-style: check-style-phpcs check-style-phpstan
+
+.PHONY: check-style-phpcs
+check-style-phpcs: vendor
+	./vendor/bin/phpcs
+
+.PHONY: check-style-phpstan
+check-style-phpstan: vendor
+	./vendor/bin/phpstan analyse
+
 vendor: composer.lock composer.phar
 	./composer.phar install --prefer-dist
 	@touch $@
