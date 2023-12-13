@@ -21,7 +21,7 @@
         "jp3cki/coding-standard": "^1.0",
         "yiisoft/yii2-debug": "~2.1.25"
     },
-    "replaces": {
+    "replace": {
         "bower-asset/inputmask": "*",
         "bower-asset/jquery": "*",
         "bower-asset/punycode": "*",
@@ -41,23 +41,5 @@
         "platform-check": true,
         "process-timeout": 1800,
         "sort-packages": true
-    },
-    "scripts": {
-        "post-install-cmd": [
-            "yii\\composer\\Installer::postInstall"
-        ]
-    },
-    "extra": {
-        "yii\\composer\\Installer::postInstall": {
-            "generateCookieValidationKey": [
-                "config/web.php"
-            ]
-        }
-    },
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://asset-packagist.org"
-        }
-    ]
+    }
 }
