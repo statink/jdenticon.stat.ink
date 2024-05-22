@@ -25,7 +25,7 @@ use function substr;
 final class GenerateAction extends Action
 {
     private const PUBLIC_CACHE_DURATION = 30 * 86400;
-    private const PRIVATE_CACHE_DURATION = 365 * 86400;
+    private const PRIVATE_CACHE_DURATION = 90 * 86400;
 
     public function run(string $hash, string $ext): Response
     {
