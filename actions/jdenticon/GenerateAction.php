@@ -25,7 +25,7 @@ use function substr;
 final class GenerateAction extends Action
 {
     private const PUBLIC_CACHE_DURATION = 30 * 86400;
-    private const PRIVATE_CACHE_DURATION = 90 * 86400;
+    private const INTERNAL_CACHE_DURATION = 7 * 86400;
 
     public function run(string $hash, string $ext): Response
     {
@@ -86,15 +86,19 @@ final class GenerateAction extends Action
             __METHOD__,
             compact('hash', 'ext'),
             hash_file('sha256', (string)Yii::getAlias('@app/composer.lock')),
+            hash_file('sha256', __FILE__),
         ];
 
         return Yii::$app->cache->getOrSet(
             $cacheKey,
             fn (): string => $this->renderIconUncached($hash, $ext),
-            self::PRIVATE_CACHE_DURATION,
+            self::INTERNAL_CACHE_DURATION,
         );
     }
 
+    /**
+     * @param 'svg'|'png' $ext
+     */
     private function renderIconUncached(string $hash, string $ext): string
     {
         $renderer = Identicon::fromHash(hash: $hash, size: 500);
@@ -107,6 +111,23 @@ final class GenerateAction extends Action
                 ),
             );
 
-        return $renderer->getImageData($ext);
+        return $this->optimizeIcon(
+            binary: $renderer->getImageData($ext),
+            ext: $ext,
+        );
+    }
+
+    /**
+     * @param 'svg'|'png' $ext
+     */
+    private function optimizeIcon(string $binary, string $ext): string
+    {
+        // TODO
+
+        // if ($ext !== 'svg') {
+        //     return $binary;
+        // }
+
+        return $binary;
     }
 }
