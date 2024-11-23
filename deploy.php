@@ -8,8 +8,16 @@ require 'recipe/yii.php';
 
 set('repository', 'git@github.com:statink/jdenticon.stat.ink.git');
 set('shared_files', []);
-set('shared_dirs', ['runtime/logs']);
-set('writable_dirs', ['runtime', 'runtime/logs', 'web/assets']);
+set('shared_dirs', [
+    'runtime/cache',
+    'runtime/logs',
+]);
+set('writable_dirs', [
+    'runtime',
+    'runtime/cache',
+    'runtime/logs',
+    'web/assets',
+]);
 
 host('img2')
     ->set('hostname', '2401:2500:10a:1004::22')
