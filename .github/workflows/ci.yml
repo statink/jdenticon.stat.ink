@@ -19,6 +19,9 @@ jobs:
             experimental: false
           -
             php: '8.4'
+            experimental: false
+          -
+            php: '8.5'
             experimental: true
     runs-on: ubuntu-22.04
     steps:

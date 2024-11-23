@@ -14,11 +14,11 @@
         "ext-pcre": "*",
         "ext-spl": "*",
         "jdenticon/jdenticon": "^1.0.2",
-        "yiisoft/yii2": "^2.0.50"
+        "yiisoft/yii2": "^2.0.51"
     },
     "require-dev": {
-        "deployer/deployer": "^7.4.0",
-        "ergebnis/composer-normalize": "^2.43.0",
+        "deployer/deployer": "^7.5.5",
+        "ergebnis/composer-normalize": "^2.44.0",
         "jp3cki/coding-standard": "^1.0",
         "proget-hq/phpstan-yii2": "^0.8.0",
         "yiisoft/yii2-debug": "^2.1.25"
