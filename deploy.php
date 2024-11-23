@@ -12,12 +12,7 @@ set('shared_dirs', [
     'runtime/cache',
     'runtime/logs',
 ]);
-set('writable_dirs', [
-    'runtime',
-    'runtime/cache',
-    'runtime/logs',
-    'web/assets',
-]);
+set('writable_dirs', []);
 
 host('img2')
     ->set('hostname', '2401:2500:10a:1004::22')
