@@ -3,8 +3,8 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": ">= 8.2",
-        "php-64bit": ">= 8.2",
+        "php": ">= 8.4",
+        "php-64bit": ">= 8.4",
         "ext-date": "*",
         "ext-gd": "*",
         "ext-hash": "*",
@@ -52,7 +52,7 @@
         "lock": true,
         "optimize-autoloader": true,
         "platform": {
-            "php": "8.2.21"
+            "php": "8.4.1"
         },
         "platform-check": true,
         "process-timeout": 1800,
