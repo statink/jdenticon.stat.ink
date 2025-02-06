@@ -4,6 +4,7 @@
 .project
 .settings
 /.vagrant
+/auth.txt
 /phpunit.xml
 /vendor
 Thumbs.db
