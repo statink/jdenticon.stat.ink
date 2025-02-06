@@ -14,3 +14,9 @@ git tag -m $VERSION_TAG $VERSION_TAG || /bin/true
 git push origin master $VERSION_TAG
 
 vendor/bin/dep deploy --tag="$VERSION_TAG"
+
+if [ -e auth.txt ]; then
+    podman build -t localhost/jdenticon:latest -t localhost/jdenticon:$VERSION_TAG .
+    podman push localhost/jdenticon:latest docker://statink.sakuracr.jp/statink/jdenticon:latest
+    podman push localhost/jdenticon:$VERSION_TAG docker://statink.sakuracr.jp/statink/jdenticon:$VERSION_TAG
+fi
