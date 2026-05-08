@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e138235f13271d06cddc8e2aee5d335c",
+    "content-hash": "407defb4b6d40f4dfdb5930ede37ba2f",
     "packages": [
         {
             "name": "cebe/markdown",
@@ -133,23 +133,23 @@
         },
         {
             "name": "jdenticon/jdenticon",
-            "version": "1.0.2",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dmester/jdenticon-php.git",
-                "reference": "cabb7a44c413c318392a341c5d3ca30fcdd57a6f"
+                "reference": "fb39a98a0a54982a130b7e7b06305d4fd8c9717e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dmester/jdenticon-php/zipball/cabb7a44c413c318392a341c5d3ca30fcdd57a6f",
-                "reference": "cabb7a44c413c318392a341c5d3ca30fcdd57a6f",
+                "url": "https://api.github.com/repos/dmester/jdenticon-php/zipball/fb39a98a0a54982a130b7e7b06305d4fd8c9717e",
+                "reference": "fb39a98a0a54982a130b7e7b06305d4fd8c9717e",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0"
+                "php": ">=7.4.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^5.7"
+                "phpunit/phpunit": "^9"
             },
             "type": "library",
             "autoload": {
@@ -178,7 +178,7 @@
                 "issues": "https://github.com/dmester/jdenticon-php/issues",
                 "source": "https://github.com/dmester/jdenticon-php"
             },
-            "time": "2022-10-30T17:15:02+00:00"
+            "time": "2025-07-14T18:30:29+00:00"
         },
         {
             "name": "yiisoft/yii2",
