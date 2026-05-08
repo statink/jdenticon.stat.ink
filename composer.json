@@ -17,7 +17,7 @@
         "yiisoft/yii2": "~2.0.54"
     },
     "require-dev": {
-        "deployer/deployer": "^7.5.12",
+        "deployer/deployer": "^8.0.3",
         "ergebnis/composer-normalize": "^2.51.0",
         "jp3cki/coding-standard": "^2.0.0",
         "proget-hq/phpstan-yii2": "^0.8.0",
