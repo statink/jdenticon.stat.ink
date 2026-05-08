@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace app\commands;
 
+use yii\console\Application;
 use yii\console\Controller;
 use yii\console\ExitCode;
 
@@ -20,6 +21,7 @@ use yii\console\ExitCode;
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @since 2.0
+ * @extends Controller<Application>
  */
 class HelloController extends Controller
 {

@@ -22,6 +22,9 @@ use function preg_match;
 use function strlen;
 use function substr;
 
+/**
+ * @extends Action<Controller>
+ */
 final class GenerateAction extends Action
 {
     private const PUBLIC_CACHE_DURATION = 30 * 86400;
