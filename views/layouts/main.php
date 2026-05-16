@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use app\helpers\TypeHelper;
 use yii\helpers\Html;
 use yii\web\View;
 
@@ -10,13 +11,13 @@ use yii\web\View;
  * @var string $content
  */
 
-$this->registerMetaTag(['charset' => Yii::$app->charset], 'charset');
+$this->registerMetaTag(['charset' => TypeHelper::app(Yii::$app)->charset], 'charset');
 $this->registerMetaTag(['name' => 'viewport', 'content' => 'width=device-width, initial-scale=1, shrink-to-fit=no']);
 
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
-<html lang="<?= Html::encode(Yii::$app->language) ?>">
+<html lang="<?= Html::encode(TypeHelper::app(Yii::$app)->language) ?>">
   <head>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head(); echo "\n" ?>

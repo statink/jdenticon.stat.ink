@@ -49,7 +49,7 @@ final class GenerateAction extends Action
                 ]);
         }
 
-        $response = Yii::$app->response;
+        $response = TypeHelper::app(Yii::$app)->response;
         $response->format = Response::FORMAT_RAW;
         $response->headers->set(
             'Content-Type',
@@ -92,7 +92,7 @@ final class GenerateAction extends Action
             hash_file('sha256', __FILE__),
         ];
 
-        return Yii::$app->cache->getOrSet(
+        return TypeHelper::app(Yii::$app)->cache->getOrSet(
             $cacheKey,
             fn (): string => $this->renderIconUncached($hash, $ext),
             self::INTERNAL_CACHE_DURATION,
